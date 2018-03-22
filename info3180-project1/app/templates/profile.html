@@ -1,0 +1,67 @@
+
+{%extends "base.html"%}
+{%block main%}
+
+{% include 'flash-msg.html' %}
+<div>
+<h2>Add Profile</h2>
+
+ <form method="POST" action="{{ url_for('profile') }}" enctype="multipart/form-data">
+  {{ form.csrf_token }}
+ 
+ <div style= "position: center ">  
+ {{ form.fname.label }}
+ <br>
+ {{ form.fname }}
+ </div>
+ <br>
+ <div>  
+ {{ form.lname.label }}
+ <br>
+ {{ form.lname }}
+ </div>
+ <br>
+ <div>  
+ {{ form.sex.label }}
+ <br>
+ {{ form.sex(placeholder = 'Select Gender' )}}
+</div>
+
+ <br>
+<div>
+ {{ form.email.label }}
+ <br>
+ {{ form.email }}
+ 
+</div>
+<br>
+ <div>
+ {{ form.address.label }}
+ <br>
+ {{ form.address }}
+ 
+ </div>
+ <br>
+<div >
+  {{ form.bio.label }}
+  <br>
+  {{ form.bio(size = 40) }}
+
+</div>
+<br>
+<br>
+<div>
+  {{ form.photo.label }}
+  <br>
+  {{ form.photo }}
+
+</div>
+ <br>
+ <div>
+    <button class="btn btn-info pull-left" data-toggle="tooltip" data-placement="top" title="Follow to piojoman">Add Profile</button>                        
+</div>  
+
+</form>
+
+</div>
+{% endblock%}

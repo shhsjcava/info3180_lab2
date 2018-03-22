@@ -1,0 +1,35 @@
+
+
+{%extends "base.html"%}
+{%block main%}
+
+<h2>Profiles</h2>
+{% for user in users %}
+
+<div class="container">
+    <div class="row">
+        <div class="people-cards">
+            <div class="col-md-6" style="border: 1px solid black;">
+                <div class="row">
+                    <div class="profile-image" style="float:left;">
+                      <img src="{{url_for('static',filename='photoos/'+u.photo)}}" alt="profile picture" style="width:100px;height:100px;padding-bottom:10px;padding-right:10px;">
+ 
+                    </div>
+                    <div class="profile-info">
+                        
+                        <h4 div class="name">{{user.fname}} {{user.lname}}</h4>
+                        <img src="{{url_for('static',filename='/app/static/images/gender.png')}}"  style="width:12px;height:12px">{{user.sex}}
+                        <br>
+                        <img src="{{url_for('static',filename='/app/static/images/location.png')}}" style="width:12px;height:12px">{{user.address}}
+                   </div>
+                    <div class="profile-link" style ="float: right">
+                        
+                     <a href="{{ url_for('userid', userid=u.id) }}"> VIEW PROFILE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock%}
